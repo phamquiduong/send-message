@@ -6,7 +6,7 @@ from constructs import Construct
 
 
 class RocketStack(Stack):
-    def __init__(self, scope: Construct, construct_id: str, config: dict, **kwargs) -> None:
+    def __init__(self, scope: Construct, construct_id: str, config: dict[str, dict], **kwargs) -> None:
         super().__init__(scope, construct_id, **kwargs)
         self.config = config
 
@@ -24,7 +24,8 @@ class RocketStack(Stack):
         for config_id, connection in self.config.items():
             _lambda.Function(
                 self,
-                f'SendRocketMessageLambda/{config_id}',
+                f'SendRocketMessageLambda{config_id}',
+                function_name=f'send-rocket-message-{config_id}',
                 runtime=_lambda.Runtime.PYTHON_3_13,
                 handler='main.handler',
                 code=_lambda.Code.from_asset('lambda_functions/send_rocket_chat'),
