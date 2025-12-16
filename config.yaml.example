@@ -1,0 +1,11 @@
+rocket_chat:
+  bot1:
+    token: user_token
+    user_id: user_id
+    domain: https://connect-rocket.com/
+    room_id: room_id
+
+slack:
+  bot1:
+    token: bot_token
+    channel: channel_id

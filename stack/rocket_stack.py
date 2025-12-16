@@ -27,7 +27,7 @@ class RocketStack(Stack):
                 f'SendRocketMessageLambda{config_id}',
                 function_name=f'send-rocket-message-{config_id}',
                 runtime=_lambda.Runtime.PYTHON_3_13,
-                handler='main.handler',
+                handler='send_message.handler',
                 code=_lambda.Code.from_asset('lambda_functions/send_rocket_chat'),
                 timeout=Duration.seconds(30),
                 memory_size=256,
