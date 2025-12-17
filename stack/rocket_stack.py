@@ -10,7 +10,7 @@ class RocketStack(Stack):
         super().__init__(scope, construct_id, **kwargs)
         self.config = config
 
-        # Email lambda layer
+        # Rocket lambda layer
         layer_path = str(Path('lambda_layers/rocket_chat').resolve())
         rocket_chat_layer = _lambda.LayerVersion(
             self,
